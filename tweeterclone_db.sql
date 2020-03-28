@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: 23-Mar-2020 às 20:11
+-- Generation Time: 28-Mar-2020 às 01:38
 -- Versão do servidor: 5.7.24
 -- versão do PHP: 7.3.1
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `twitter_clone`
+-- Database: `tweeterclone_db`
 --
 
 -- --------------------------------------------------------
@@ -35,15 +35,7 @@ CREATE TABLE IF NOT EXISTS `tweets` (
   `tweet` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `data` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `tweets`
---
-
-INSERT INTO `tweets` (`id`, `id_usuario`, `tweet`, `data`) VALUES
-(1, 1, 'Primeiro Tweet', '2020-03-22 23:50:18'),
-(4, 2, 'Teste de seguindo', '2020-03-23 11:36:52');
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -57,16 +49,10 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `nome` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `tokenExpire` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `usuarios`
---
-
-INSERT INTO `usuarios` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'David', 'd.santosm27@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b'),
-(2, 'Teste ', 'adm@teste.com', '01cfcd4f6b8770febfb40cb906715822');
 
 -- --------------------------------------------------------
 
@@ -81,14 +67,6 @@ CREATE TABLE IF NOT EXISTS `usuarios_seguidores` (
   `id_usuario_seguindo` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Extraindo dados da tabela `usuarios_seguidores`
---
-
-INSERT INTO `usuarios_seguidores` (`id`, `id_usuario`, `id_usuario_seguindo`) VALUES
-(3, 1, 2),
-(4, 2, 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

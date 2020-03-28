@@ -68,6 +68,24 @@ class Route extends Bootstrap {
 			'action' => 'removerTweet'
 		);
 
+		$routes['forgot_password'] = array(
+			'route' => '/forgot_password',
+			'controller' => 'ForgotController',
+			'action' => 'forgotPass'
+		);
+
+		$routes['reset_password'] = array(
+			'route' => '/reset_password',
+			'controller' => 'ForgotController',
+			'action' => 'resetPassword'
+		);
+
+		$routes['set_new_pass'] = array(
+			'route' => '/set_new_pass',
+			'controller' => 'ForgotController',
+			'action' => 'setNewPass'
+		);
+
 		$this->setRoutes($routes);
 	}
 
